@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PWA Localitzacions</title>
+
+  <!-- Manifest -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Estils simples -->
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    input { width: 100%; padding: 10px; font-size: 18px; }
+    .resultat { padding: 10px; border-bottom: 1px solid #ddd; cursor: pointer; }
+    .resultat:hover { background: #f0f0f0; }
+  </style>
+</head>
+<body>
+
+  <h1>Localitzacions</h1>
+  <input id="buscador" type="text" placeholder="Escriu per buscar..." />
+
+  <div id="resultats"></div>
+
+  <script src="app.js"></script>
+
+  <script>
+    // Registre del service worker
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js');
+    }
+  </script>
+
+</body>
+</html>
