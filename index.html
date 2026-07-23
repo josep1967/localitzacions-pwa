@@ -5,28 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PWA Localitzacions</title>
 
-  <!-- Manifest -->
   <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="styles.css">
 
-  <!-- Estils simples -->
-  <style>
-    body { font-family: sans-serif; padding: 20px; }
-    input { width: 100%; padding: 10px; font-size: 18px; }
-    .resultat { padding: 10px; border-bottom: 1px solid #ddd; cursor: pointer; }
-    .resultat:hover { background: #f0f0f0; }
-  </style>
 </head>
 <body>
 
-  <h1>Localizaciones</h1>
-  <input id="buscador" type="text" placeholder="Escribe para buscar..." />
+  <header>
+    <h1>Localizaciones</h1>
+  </header>
 
-  <div id="resultats"></div>
+  <main>
+    <input id="buscador" type="text" placeholder="Escribe para buscar..." autocomplete="off">
+
+    <div id="resultats"></div>
+
+    <div id="detall" class="ocult">
+      <h2 id="detall-nom"></h2>
+      <p><strong>Latitud:</strong> <span id="detall-lat"></span></p>
+      <p><strong>Longitud:</strong> <span id="detall-lon"></span></p>
+      <button id="tancar-detall">Cerrar</button>
+    </div>
+  </main>
 
   <script src="app.js"></script>
 
   <script>
-    // Registre del service worker
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('service-worker.js');
     }
